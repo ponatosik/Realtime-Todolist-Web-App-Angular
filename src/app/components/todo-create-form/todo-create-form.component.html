@@ -1,0 +1,17 @@
+<div class="card border-0 shadow-sm my-3">
+  <form class="input-group row m-0" (ngSubmit)="create()">
+    <input type="text" class="text-truncate form-control text-start col" [(ngModel)]="title" name="todo-title"
+      placeholder="Task title" />
+    @if(deadline != null){
+    <input class="form-control col-auto" type="date" [attr.id]="'form-datepicker'" name="todo-deadline"
+      [ngModel]="deadline | date:'yyyy-MM-dd'" (ngModelChange)="deadline = $event != '' ?  $event : null" />
+    <button type="button" class="btn col-auto" (click)="deadline = null">
+      <i class=" bi bi-x-square-fill text-secondary"></i>
+    </button>
+    } @else {
+    <button type="button" class="btn btn col-auto btn-outline-secondary" (click)="setDeadlineToday()">Add
+      deadline</button>
+    }
+    <button type="submit" class="btn btn col-auto btn-primary">+</button>
+  </form>
+</div>

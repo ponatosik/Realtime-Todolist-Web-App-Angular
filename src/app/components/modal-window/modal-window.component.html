@@ -1,0 +1,24 @@
+<div class="modal fade" [attr.id]="'modal-' + modalId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <ng-content select="modal-title"></ng-content>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <ng-content select="modal-body"></ng-content>
+      </div>
+      <div class="modal-footer">
+        <ng-content select="modal-footer"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal's show/hide buttons (workaround to trigger bootstrap modal logic) -->
+<button #modalActivationButton type="menu" class="w-0 h-0 border-0 opacity-0 d-none" data-bs-toggle="modal"
+  [attr.data-bs-target]="'#modal-' + modalId"></button>
+<button #modalCloseButton type="button" class="d-none w-0 h-0 border-0 opacity-0 d-none" data-bs-dismiss="modal"
+  [attr.data-bs-target]="'#modal-' + modalId"></button>

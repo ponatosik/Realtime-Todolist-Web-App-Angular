@@ -1,0 +1,22 @@
+<modal-window #CautionModal>
+  <ng-container ngProjectAs="modal-title">Caution</ng-container>
+  <ng-container ngProjectAs="modal-body">
+    <div class=" alert alert-secondary" role="alert">
+      This website is accessible to everyone. Any user can freely view, add, edit,
+      or delete tasks and workspaces without any restrictions. Remember that
+      <strong class="fw-bold text-uppercase">the content here is public and can be viewed and modified by anyone.
+      </strong>
+    </div>
+    <div class="alert alert-danger" role="alert">
+      Avoid including any personal, confidential, or sensitive information in your entries.
+    </div>
+    <p>
+      This website is created for demonstration purposes only.
+    </p>
+  </ng-container>
+  <ng-container ngProjectAs="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="closeAndRememberMyChoise()">Close and don't show
+      this again</button>
+    <button type="button" class="btn btn-primary" (click)="cautionModal.hide()">Close</button>
+  </ng-container>
+</modal-window>

@@ -1,0 +1,53 @@
+<div class="row todo-card-container" [class.shrink-animation]="isDeleting()">
+  <div class="col">
+    <div class="card my-3 shadow" [style.order]="todoTask.order">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto align-self-center checkbox-container">
+            <input class="form-check-input card-checkbox" type="checkbox" [ngModel]="todoTask.completed"
+              (ngModelChange)="updateTaskCompletion($event)">
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <h5 class="d-inline-block" [class.text-decoration-line-through]="todoTask.completed"
+                  [class.text-muted]="todoTask.completed">
+                  {{todoTask.title}}
+                </h5>
+                <div class="col">
+                  <div class="row">
+                    <div class="col-auto">
+                      @if(todoTask.deadline != null){
+                      <div class="input-group input-group-sm text-muted">
+                        <label class="col-auto col-form-label input-group-text text-muted"
+                          [attr.for]="'datepicker-' + todoTask.id">Deadline</label>
+                        <input class="form-control form-control-sm text-muted" type="date"
+                          [attr.id]="'datepicker-' + todoTask.id" [ngModel]="deadline | date:'yyyy-MM-dd'"
+                          (ngModelChange)="deadline = $event != '' ?  $event : null"
+                          (change)="updateTaskDeadline(deadline)" />
+                        <button type="button" class="btn btn-sm" (click)="updateTaskDeadline(null)">
+                          <i class=" bi bi-x-square-fill text-secondary"></i>
+                        </button>
+                      </div>
+                      } @else {
+                      <button type="button" class="btn btn-sm btn-outline-secondary"
+                        (click)="updateTaskDeadlineToday()">
+                        Add deadline</button>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto align-self-center grip-icon">
+            <i class="bi bi-grip-vertical"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto my-auto d-grid card-delete-button">
+    <button class="btn btn-outline-danger btn-lg" (click)="deleteTask()"><i class="bi bi-trash"></i></button>
+  </div>
+</div>

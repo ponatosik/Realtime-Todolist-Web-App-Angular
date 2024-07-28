@@ -1,0 +1,64 @@
+.grip-icon {
+  transform: scale(1.4);
+  cursor: grab;
+}
+
+.checkbox-container {
+  transform: scale(1.4);
+  margin-right: 0.1rem;
+  margin-left: 0.4rem;
+}
+
+.card-checkbox:checked {
+  background-color: var(--bs-success);
+  border-color: var(--bs-success);
+}
+
+.card-checkbox {
+  border-color: var(--bs-gray-500);
+}
+
+.card-checkbox:focus {
+  outline: 0 !important;
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-success-rgb), 0.25);
+}
+
+.checkbox-container>input {
+  cursor: pointer;
+}
+
+.datepicker {
+  transform: scale(0.9);
+}
+
+.todo-card-container:hover .card-delete-button .btn {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.card-delete-button .btn {
+  filter: grayscale(1);
+  transition: filter 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.card-delete-button .btn {
+  border: 0px;
+  opacity: 0.5;
+}
+
+.shrink-animation {
+  animation: shrink forwards 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+
+@keyframes shrink {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

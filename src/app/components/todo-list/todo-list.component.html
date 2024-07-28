@@ -1,0 +1,25 @@
+@if(workspacesConnection.isConnected$ | async) {
+@if((todoList$ | async) == null) {
+<h3>No active active workspace is seleted</h3>
+<p>You can open or create a workspace from the menu</p>
+}
+@else {
+<h3>{{ (selectedWorkspace$ | async)!.name }}</h3>
+<div cdkDropList class="d-flex flex-column todo-list" (cdkDropListDropped)="moveTask($event)">
+  @for(todoTask of todoList$ | async; track todoTask.id) {
+  <todo-card cdkDrag [cdkDragData]="todoTask" [todoTask]=" todoTask" [style.order]="todoTask.order" class="todo-card"
+    (onUpdateTaskCompleted)="onUpdateTaskCompleted($event)" (onUpdateTaskDeadline)="onUpdateTaskDealine($event)"
+    (onDeleteTask)="onDeleteTask($event)" />
+  }
+</div>
+<todo-create-form (todoCreated)="createTask($event)"></todo-create-form>
+}
+}
+@else {
+<h3>Loading...</h3>
+<div class="d-flex justify-content-center">
+  <div class="spinner-border mt-5" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+}

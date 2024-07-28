@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+      aria-expanded="false" aria-controls="sidebar">
+      <span class="bi-list"></span>
+    </button>
+    <a class="navbar-brand" href="https://github.com/ponatosik/Realtime-ToDo-Web-API">
+      <i class="bi bi-github"></i>
+      Realtime todo list</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="collapse collapse-horizontal show col-3 me-3" id="sidebar">
+      <div class="sidebar-header py-3 row flex-nowrap justify-content-between">
+        <h3 class="sidebar-title col-auto">Workspaces</h3>
+        <button type="button" class="btn-close text-reset col-1 my-auto align-self-end me-3" data-bs-toggle="collapse"
+          data-bs-target="#sidebar" aria-label="Close"></button>
+      </div>
+      <div class="sidebar-body px-0">
+        <workspace-list></workspace-list>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="col">
+      <div class="row py-3">
+        <todo-list />
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-caution></app-caution>

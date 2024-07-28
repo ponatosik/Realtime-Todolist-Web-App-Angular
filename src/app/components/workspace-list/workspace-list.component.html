@@ -1,0 +1,18 @@
+<div class="nav list-group overflow-hidden" id="menu">
+  @for (workspace of workspaces$ | async; track workspace.id) {
+  <button type="button" class="list-group-item list-group-item-action"
+    (click)="hubService.connectToWorkspace(workspace)">
+    <span class="ms-1 d-block text-truncate">{{workspace.name}}</span>
+  </button>
+  }
+  <form class="input-group d-flex flex-nowrap py-1" [class.d-none]="!isCreateFormActive()"
+    (focusout)="onCreateFormFocusOut($event)" (ngSubmit)="createWorkspace()">
+    <input #createWorkspaceFormInput type="text" class="text-truncate col-auto form-control text-start ms-2"
+      placeholder="Workspace name" />
+    <button type="submit" class="btn btn-primary btn-sm col-2"><i class="bi bi-folder-plus"></i></button>
+  </form>
+  <button class="btn btn-link text-start text-decoration-none text-truncate" [class.d-none]="isCreateFormActive()"
+    (click)="isCreateFormActive.set(true)">
+    <span class="ms-2 d-inline">Create new workspace</span>
+  </button>
+</div>
