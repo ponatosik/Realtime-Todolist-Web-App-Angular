@@ -40,6 +40,9 @@
               </div>
             </div>
           </div>
+          <div class="col-auto my-auto d-md-none d-grid card-delete-button">
+            <button class="btn btn-outline-danger btn-lg" (click)="deleteTask()"><i class="bi bi-trash"></i></button>
+          </div>
           <div class="col-auto align-self-center grip-icon">
             <i class="bi bi-grip-vertical"></i>
           </div>
@@ -47,7 +50,7 @@
       </div>
     </div>
   </div>
-  <div class="col-auto my-auto d-grid card-delete-button">
+  <div class="col-auto my-auto d-grid d-none d-md-block card-delete-button">
     <button class="btn btn-outline-danger btn-lg" (click)="deleteTask()"><i class="bi bi-trash"></i></button>
   </div>
 </div>
