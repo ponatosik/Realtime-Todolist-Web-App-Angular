@@ -105,7 +105,13 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://ponatosik.github.io/Realtime-Todolist-Web-App-Angular/",
+            "repo": "https://github.com/ponatosik/Realtime-Todolist-Web-App-Angular.git",
+            "name": "ponatosik",
+            "email": "ponatosik@gmail.com"
+          }
         }
       }
     }

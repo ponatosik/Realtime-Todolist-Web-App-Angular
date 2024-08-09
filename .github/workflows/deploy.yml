@@ -26,6 +26,6 @@ jobs:
 
       - name: Deploy to Github pages
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_CD_GH_PAGES_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          npm run ng deploy --repo=https://github.com/ponatosik/Realtime-Todolist-Web-App-Angular.git --base-href=/Realtime-Todolist-Web-App-Angular/ --name=ponatosik --email=ponatosik@gmail.com
+          npm run ng deploy
